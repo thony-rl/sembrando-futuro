@@ -1,0 +1,2673 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sembrando Futuro - Transformamos plástico en vida mediante macetas ecológicas hechas con botellas PET recicladas para cultivo de plantas medicinales">
+  <meta name="theme-color" content="#2E7D32">
+  <title>Sembrando Futuro | Reciclaje y Plantas Medicinales</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --verde-principal: #2E7D32;
+      --verde-oscuro: #1B5E20;
+      --verde-claro: #E8F5E9;
+      --verde-acento: #4CAF50;
+      --fondo-pagina: #FAFAFA;
+      --texto-principal: #1E293B;
+      --texto-secundario: #475569;
+      --blanco: #FFFFFF;
+      --sombra-suave: 0 4px 20px rgba(46, 125, 50, 0.1);
+      --sombra-media: 0 8px 30px rgba(46, 125, 50, 0.15);
+      --radio-borde: 16px;
+      --radio-borde-sm: 12px;
+      --transicion: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --contenedor-max: 1200px;
+      --header-alto: 72px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--header-alto);
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: var(--fondo-pagina);
+      color: var(--texto-principal);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img,
+svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .contenedor {
+      width: 100%;
+      max-width: var(--contenedor-max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--verde-acento);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    ::selection {
+      background-color: var(--verde-principal);
+      color: var(--blanco);
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(250, 250, 250, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(46, 125, 50, 0.1);
+      height: var(--header-alto);
+    }
+
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      gap: 1.5rem;
+    }
+
+    .header__logo {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      font-weight: 800;
+      font-size: 1.375rem;
+      color: var(--verde-oscuro);
+      white-space: nowrap;
+    }
+
+    .header__logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--verde-principal), var(--verde-acento));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blanco);
+      flex-shrink: 0;
+    }
+
+    .header__nav {
+      display: none;
+    }
+
+    .header__nav-list {
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .header__nav-link {
+      display: block;
+      padding: 0.5rem 0.875rem;
+      font-weight: 500;
+      font-size: 0.9375rem;
+      color: var(--texto-secundario);
+      border-radius: var(--radio-borde-sm);
+      transition: var(--transicion);
+    }
+
+    .header__nav-link:hover,
+    .header__nav-link:focus {
+      color: var(--verde-principal);
+      background: var(--verde-claro);
+    }
+
+    .header__actions {
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      margin-left: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      border-radius: var(--radio-borde-sm);
+      transition: var(--transicion);
+      white-space: nowrap;
+    }
+
+    .btn--nav {
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: 99px;
+      border: 1px solid transparent;
+    }
+
+    .btn--nav:hover,
+    .btn--nav:focus {
+      transform: translateY(-2px);
+      box-shadow: var(--sombra-suave);
+    }
+
+    .btn--facebook {
+      background: rgba(24, 119, 242, 0.1);
+      color: #1877F2;
+      border-color: rgba(24, 119, 242, 0.2);
+    }
+
+    .btn--facebook:hover,
+    .btn--facebook:focus {
+      background: #1877F2;
+      color: var(--blanco);
+      border-color: #1877F2;
+    }
+
+    .btn--drive {
+      background: rgba(46, 125, 50, 0.1);
+      color: var(--verde-principal);
+      border-color: rgba(46, 125, 50, 0.2);
+    }
+
+    .btn--drive:hover,
+    .btn--drive:focus {
+      background: var(--verde-principal);
+      color: var(--blanco);
+      border-color: var(--verde-principal);
+    }
+
+    .btn-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .btn--primario {
+      background: var(--verde-principal);
+      color: var(--blanco);
+    }
+
+    .btn--primario:hover,
+    .btn--primario:focus {
+      background: var(--verde-oscuro);
+      transform: translateY(-2px);
+      box-shadow: var(--sombra-media);
+    }
+
+    .btn--secundario {
+      background: var(--blanco);
+      color: var(--verde-principal);
+      border: 2px solid var(--verde-principal);
+    }
+
+    .btn--secundario:hover,
+    .btn--secundario:focus {
+      background: var(--verde-claro);
+      transform: translateY(-2px);
+    }
+
+    .header__hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
+      padding: 0;
+      background: transparent;
+    }
+
+    .header__hamburger-line {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: var(--texto-principal);
+      border-radius: 2px;
+      transition: var(--transicion);
+      transform-origin: center;
+    }
+
+    .header__hamburger[aria-expanded="true"] .header__hamburger-line:nth-child(1) {
+      transform: translateY(8.5px) rotate(45deg);
+    }
+
+    .header__hamburger[aria-expanded="true"] .header__hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .header__hamburger[aria-expanded="true"] .header__hamburger-line:nth-child(3) {
+      transform: translateY(-8.5px) rotate(-45deg);
+    }
+
+    @media (min-width: 768px) {
+      .header__nav {
+        display: block;
+      }
+
+      .header__actions {
+        display: flex;
+      }
+
+      .header__hamburger {
+        display: none;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .header__nav {
+        position: fixed;
+        top: var(--header-alto);
+        left: 0;
+        right: 0;
+        background: var(--blanco);
+        border-bottom: 1px solid rgba(46, 125, 50, 0.1);
+        padding: 1.5rem;
+        box-shadow: var(--sombra-media);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transicion);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .header__nav--abierto {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .header__nav-list {
+        flex-direction: column;
+        gap: 0.25rem;
+        width: 100%;
+      }
+
+      .header__nav-link {
+        padding: 1rem 1.25rem;
+        font-size: 1.0625rem;
+        text-align: center;
+      }
+
+      .header__actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(46, 125, 50, 0.1);
+        gap: 0.5rem;
+      }
+
+      .header__actions .btn--nav {
+        flex: 1;
+        min-width: 140px;
+        width: auto;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contenedor {
+        padding: 0 1rem;
+      }
+
+      .hero__titulo {
+        font-size: clamp(2rem, 8vw, 2.75rem);
+      }
+
+      .hero__subtitulo {
+        font-size: 1rem;
+      }
+
+      .seccion {
+        padding: 3.5rem 0;
+      }
+
+      .seccion__titulo {
+        font-size: clamp(1.75rem, 6vw, 2.25rem);
+      }
+
+      .seccion__descripcion {
+        font-size: 1rem;
+      }
+
+      .btn--primario,
+      .btn--secundario {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.9375rem;
+      }
+
+      .formulario__input,
+      .formulario__select,
+      .formulario__textarea {
+        font-size: 1rem;
+      }
+    }
+
+    .hero {
+      position: relative;
+      padding: 5rem 0;
+      background: linear-gradient(180deg, var(--fondo-pagina) 0%, var(--verde-claro) 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 60%;
+      height: 150%;
+      background: radial-gradient(ellipse at center, rgba(76, 175, 80, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero__inner {
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero__contenido {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .hero__etiqueta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.25rem;
+      background: var(--blanco);
+      border: 1px solid rgba(46, 125, 50, 0.2);
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--verde-principal);
+      margin-bottom: 1.5rem;
+      box-shadow: var(--sombra-suave);
+    }
+
+    .hero__etiqueta-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .hero__titulo {
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--texto-principal);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero__titulo-resaltado {
+      color: var(--verde-principal);
+      position: relative;
+    }
+
+    .hero__titulo-resaltado::after {
+      content: '';
+      position: absolute;
+      bottom: 0.15em;
+      left: 0;
+      right: 0;
+      height: 0.3em;
+      background: linear-gradient(90deg, rgba(76, 175, 80, 0.3), rgba(46, 125, 50, 0.3));
+      border-radius: 2px;
+      z-index: -1;
+    }
+
+    .hero__subtitulo {
+      font-size: clamp(1.125rem, 2vw, 1.375rem);
+      line-height: 1.7;
+      color: var(--texto-secundario);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero__acciones {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hero__acciones .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .hero__imagen {
+      position: relative;
+      z-index: 1;
+      display: none;
+    }
+
+    .hero__ilustracion {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      filter: drop-shadow(0 20px 40px rgba(46, 125, 50, 0.15));
+    }
+
+    .hero__decoracion {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(46, 125, 50, 0.05));
+      pointer-events: none;
+    }
+
+    .hero__decoracion--1 {
+      top: 10%;
+      left: 5%;
+      animation: flotar 6s ease-in-out infinite;
+    }
+
+    .hero__decoracion--2 {
+      bottom: 15%;
+      right: 5%;
+      width: 80px;
+      height: 80px;
+      animation: flotar 8s ease-in-out infinite reverse;
+    }
+
+    .hero__decoracion--3 {
+      top: 50%;
+      left: 2%;
+      width: 60px;
+      height: 60px;
+      animation: flotar 7s ease-in-out infinite 1s;
+    }
+
+    @keyframes flotar {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 7rem 0;
+      }
+
+      .hero__inner {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+      }
+
+      .hero__contenido {
+        text-align: left;
+      }
+
+      .hero__etiqueta {
+        margin-bottom: 1.5rem;
+      }
+
+      .hero__subtitulo {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .hero__acciones {
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+
+      .hero__acciones .btn {
+        width: auto;
+      }
+
+      .hero__imagen {
+        display: block;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero {
+        padding: 8rem 0;
+      }
+    }
+
+    .seccion {
+      padding: 5rem 0;
+    }
+
+    .seccion--alterna {
+      background: var(--verde-claro);
+    }
+
+    .seccion__cabecera {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .seccion__etiqueta {
+      display: inline-block;
+      padding: 0.375rem 1rem;
+      background: var(--verde-principal);
+      color: var(--blanco);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+
+    .seccion__titulo {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--texto-principal);
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .seccion__titulo-resaltado {
+      color: var(--verde-principal);
+    }
+
+    .seccion__descripcion {
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: var(--texto-secundario);
+    }
+
+    .nosotros {
+      background: var(--fondo-pagina);
+    }
+
+    .nosotros__grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .nosotros__contenido {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .nosotros__texto {
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: var(--texto-secundario);
+    }
+
+    .nosotros__texto strong {
+      color: var(--texto-principal);
+    }
+
+    .nosotros__valores {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .valor {
+      display: flex;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: var(--blanco);
+      border: 1px solid rgba(46, 125, 50, 0.1);
+      border-radius: var(--radio-borde);
+      transition: var(--transicion);
+    }
+
+    .valor:hover {
+      border-color: rgba(46, 125, 50, 0.3);
+      box-shadow: var(--sombra-suave);
+      transform: translateY(-2px);
+    }
+
+    .valor__icono {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      background: var(--verde-claro);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--verde-principal);
+    }
+
+    .valor__icono svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .valor__info h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--texto-principal);
+      margin-bottom: 0.375rem;
+    }
+
+    .valor__info p {
+      font-size: 0.9375rem;
+      color: var(--texto-secundario);
+      line-height: 1.6;
+    }
+
+    .nosotros__imagen {
+      display: none;
+      border-radius: var(--radio-borde);
+      overflow: hidden;
+      box-shadow: var(--sombra-media);
+    }
+
+    .nosotros__imagen svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+      .nosotros__grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+
+      .nosotros__imagen {
+        display: block;
+      }
+    }
+
+    .proposito {
+      background: var(--fondo-pagina);
+    }
+
+    .proposito__comparativa {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .comparativa__tarjeta {
+      padding: 2rem;
+      background: var(--blanco);
+      border-radius: var(--radio-borde);
+      border: 1px solid rgba(46, 125, 50, 0.1);
+      transition: var(--transicion);
+    }
+
+    .comparativa__tarjeta:hover {
+      box-shadow: var(--sombra-media);
+      transform: translateY(-4px);
+    }
+
+    .comparativa__tarjeta--problema {
+      border-left: 4px solid #EF4444;
+    }
+
+    .comparativa__tarjeta--solucion {
+      border-left: 4px solid var(--verde-principal);
+    }
+
+    .comparativa__icono {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .comparativa__tarjeta--problema .comparativa__icono {
+      background: #FEF2F2;
+      color: #EF4444;
+    }
+
+    .comparativa__tarjeta--solucion .comparativa__icono {
+      background: var(--verde-claro);
+      color: var(--verde-principal);
+    }
+
+    .comparativa__icono svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .comparativa__titulo {
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: var(--texto-principal);
+      margin-bottom: 1rem;
+    }
+
+    .comparativa__lista {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .comparativa__item {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      background: var(--fondo-pagina);
+      border-radius: var(--radio-borde-sm);
+      font-size: 0.9375rem;
+      color: var(--texto-secundario);
+      line-height: 1.6;
+    }
+
+    .comparativa__item-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .comparativa__tarjeta--problema .comparativa__item-icon {
+      color: #EF4444;
+    }
+
+    .comparativa__tarjeta--solucion .comparativa__item-icon {
+      color: var(--verde-principal);
+    }
+
+    .comparativa__item-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .proposito__comparativa {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .proceso {
+      background: var(--verde-claro);
+    }
+
+    .proceso__lista {
+      display: grid;
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .proceso__lista::before {
+      content: '';
+      position: absolute;
+      left: 28px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--verde-principal), var(--verde-acento));
+      opacity: 0.2;
+    }
+
+    @media (min-width: 768px) {
+      .proceso__lista::before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    .paso {
+      display: grid;
+      gap: 1rem;
+      position: relative;
+      padding-left: 72px;
+    }
+
+    @media (min-width: 768px) {
+      .paso:nth-child(odd) {
+        grid-template-columns: 1fr auto;
+        padding-left: 0;
+        padding-right: 72px;
+        text-align: right;
+      }
+
+      .paso:nth-child(even) {
+        grid-template-columns: auto 1fr;
+        padding-left: 72px;
+        text-align: left;
+      }
+    }
+
+    .paso__numero {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 56px;
+      height: 56px;
+      background: var(--verde-principal);
+      color: var(--blanco);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      box-shadow: 0 0 0 4px var(--blanco), var(--sombra-suave);
+      z-index: 1;
+    }
+
+    @media (min-width: 768px) {
+      .paso:nth-child(odd) .paso__numero {
+        left: auto;
+        right: 0;
+      }
+
+      .paso:nth-child(even) .paso__numero {
+        left: 0;
+      }
+    }
+
+    .paso__contenido {
+      background: var(--blanco);
+      padding: 1.5rem;
+      border-radius: var(--radio-borde);
+      border: 1px solid rgba(46, 125, 50, 0.1);
+      box-shadow: var(--sombra-suave);
+      transition: var(--transicion);
+    }
+
+    .paso__contenido:hover {
+      box-shadow: var(--sombra-media);
+      transform: translateY(-2px);
+    }
+
+    .paso__titulo {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--texto-principal);
+      margin-bottom: 0.5rem;
+    }
+
+    .paso__descripcion {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--texto-secundario);
+    }
+
+    .plantas {
+      background: var(--fondo-pagina);
+    }
+
+    .plantas__grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .plantas__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .plantas__grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .planta {
+      background: var(--blanco);
+      border-radius: var(--radio-borde);
+      border: 1px solid rgba(46, 125, 50, 0.1);
+      overflow: hidden;
+      transition: var(--transicion);
+    }
+
+    .planta:hover {
+      box-shadow: var(--sombra-media);
+      transform: translateY(-4px);
+      border-color: rgba(46, 125, 50, 0.3);
+    }
+
+    .planta__imagen {
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(135deg, var(--verde-claro), #F1F8E9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .planta__imagen svg {
+      width: 80%;
+      height: 80%;
+      max-width: 160px;
+      max-height: 160px;
+    }
+
+    .planta__contenido {
+      padding: 1.5rem;
+    }
+
+    .planta__nombre {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--texto-principal);
+      margin-bottom: 0.75rem;
+    }
+
+    .planta__beneficios {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+      margin-bottom: 1rem;
+    }
+
+    .planta__beneficio {
+      padding: 0.25rem 0.75rem;
+      background: var(--verde-claro);
+      color: var(--verde-oscuro);
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 100px;
+    }
+
+    .planta__descripcion {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--texto-secundario);
+      margin-bottom: 1.25rem;
+    }
+
+    .planta__usos {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(46, 125, 50, 0.1);
+      font-size: 0.875rem;
+      color: var(--texto-secundario);
+    }
+
+    .planta__usos-icon {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: var(--verde-principal);
+    }
+
+    .evidencias {
+      background: var(--verde-claro);
+    }
+
+    .evidencias__contenido {
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .evidencias__contenido {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+      }
+    }
+
+    .evidencias__texto {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .evidencias__descripcion {
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: var(--texto-secundario);
+    }
+
+    .evidencias__stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .evidencias__stats {
+        justify-content: flex-start;
+      }
+    }
+
+    .evidencia__stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 1.25rem;
+      background: var(--blanco);
+      border-radius: var(--radio-borde);
+      border: 1px solid rgba(46, 125, 50, 0.1);
+      min-width: 120px;
+      transition: var(--transicion);
+    }
+
+    .evidencia__stat:hover {
+      box-shadow: var(--sombra-suave);
+      transform: translateY(-2px);
+    }
+
+    .evidencia__stat-numero {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--verde-principal);
+      line-height: 1;
+    }
+
+    .evidencia__stat-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--texto-secundario);
+      text-align: center;
+    }
+
+    .evidencias__imagen {
+      border-radius: var(--radio-borde);
+      overflow: hidden;
+      box-shadow: var(--sombra-media);
+    }
+
+    .evidencias__imagen svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .evidencias__accion {
+      margin-top: 1rem;
+    }
+
+    .contacto {
+      background: var(--fondo-pagina);
+    }
+
+    .contacto__grid {
+      display: grid;
+      gap: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .contacto__grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+    }
+
+    .contacto__info {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .contacto__descripcion {
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: var(--texto-secundario);
+    }
+
+    .contacto__metodos {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contacto__metodo {
+      display: flex;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: var(--blanco);
+      border: 1px solid rgba(46, 125, 50, 0.1);
+      border-radius: var(--radio-borde);
+      transition: var(--transicion);
+    }
+
+    .contacto__metodo:hover {
+      border-color: rgba(46, 125, 50, 0.3);
+      box-shadow: var(--sombra-suave);
+    }
+
+    .contacto__metodo-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: var(--verde-claro);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--verde-principal);
+    }
+
+    .contacto__metodo-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .contacto__metodo-info h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--texto-principal);
+      margin-bottom: 0.25rem;
+    }
+
+    .contacto__metodo-info p {
+      font-size: 0.9375rem;
+      color: var(--texto-secundario);
+    }
+
+    .contacto__redes {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .contacto__red {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blanco);
+      transition: var(--transicion);
+    }
+
+    .contacto__red--facebook {
+      background: #1877F2;
+    }
+
+    .contacto__red--facebook:hover {
+      background: #166FE5;
+      transform: translateY(-2px);
+    }
+
+    .contacto__red--drive {
+      background: var(--verde-oscuro);
+    }
+
+    .contacto__red--drive:hover {
+      background: #0d3b10;
+      transform: translateY(-2px);
+    }
+
+    .contacto__red--instagram {
+      background: linear-gradient(135deg, #E4405F, #FCAF45);
+    }
+
+    .contacto__red--instagram:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .contacto__red svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .contacto__formulario {
+      background: var(--blanco);
+      padding: 2rem;
+      border-radius: var(--radio-borde);
+      border: 1px solid rgba(46, 125, 50, 0.1);
+      box-shadow: var(--sombra-suave);
+    }
+
+    .formulario__grupo {
+      margin-bottom: 1.5rem;
+    }
+
+    .formulario__etiqueta {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--texto-principal);
+      margin-bottom: 0.5rem;
+    }
+
+    .formulario__etiqueta-requerido {
+      color: #EF4444;
+      margin-left: 0.25rem;
+    }
+
+    .formulario__input,
+    .formulario__select,
+    .formulario__textarea {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--texto-principal);
+      background: var(--fondo-pagina);
+      border: 1px solid rgba(46, 125, 50, 0.2);
+      border-radius: var(--radio-borde-sm);
+      transition: var(--transicion);
+    }
+
+    .formulario__input:focus,
+    .formulario__select:focus,
+    .formulario__textarea:focus {
+      outline: none;
+      border-color: var(--verde-principal);
+      box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+      background: var(--blanco);
+    }
+
+    .formulario__input::placeholder,
+    .formulario__textarea::placeholder {
+      color: #94A3B8;
+    }
+
+    .formulario__textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .formulario__submit {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .footer {
+      background: var(--texto-principal);
+      color: var(--blanco);
+      padding: 4rem 0 2rem;
+    }
+
+    .footer__grid {
+      display: grid;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 640px) {
+      .footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .footer__grid {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+      }
+    }
+
+    .footer__marca {
+      max-width: 300px;
+    }
+
+    .footer__logo {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      font-weight: 800;
+      font-size: 1.375rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer__logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--verde-principal), var(--verde-acento));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blanco);
+      flex-shrink: 0;
+    }
+
+    .footer__descripcion {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__redes {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .footer__red {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--blanco);
+      transition: var(--transicion);
+    }
+
+    .footer__red:hover {
+      background: var(--verde-principal);
+      transform: translateY(-2px);
+    }
+
+    .footer__red svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .footer__titulo {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.25rem;
+      color: var(--blanco);
+    }
+
+    .footer__enlaces {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .footer__enlace {
+      font-size: 0.9375rem;
+      color: rgba(255, 255, 255, 0.7);
+      transition: var(--transicion);
+    }
+
+    .footer__enlace:hover {
+      color: var(--verde-acento);
+    }
+
+    .footer__contacto-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.9375rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+    }
+
+    .footer__contacto-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin-top: 0.125rem;
+      color: var(--verde-acento);
+    }
+
+    .footer__divisor {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__copyright {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    @media (min-width: 768px) {
+      .footer__copyright {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    .footer__mensaje {
+      font-weight: 500;
+      color: var(--verde-acento);
+    }
+  </style>
+</head>
+<body>
+  <header class="header" role="banner">
+    <div class="contenedor header__inner">
+      <a href="#" class="header__logo" aria-label="Sembrando Futuro - Inicio">
+        <span class="header__logo-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+        </span>
+        <span>Sembrando Futuro</span>
+      </a>
+
+      <button class="header__hamburger" aria-expanded="false" aria-controls="nav-principal" aria-label="Abrir menú de navegación">
+        <span class="header__hamburger-line" aria-hidden="true"></span>
+        <span class="header__hamburger-line" aria-hidden="true"></span>
+        <span class="header__hamburger-line" aria-hidden="true"></span>
+      </button>
+
+      <nav class="header__nav" id="nav-principal" role="navigation" aria-label="Navegación principal">
+        <ul class="header__nav-list">
+          <li><a href="#inicio" class="header__nav-link">Inicio</a></li>
+          <li><a href="#nosotros" class="header__nav-link">Nosotros</a></li>
+          <li><a href="#proposito" class="header__nav-link">Propósito</a></li>
+          <li><a href="#proceso" class="header__nav-link">Proceso</a></li>
+          <li><a href="#plantas" class="header__nav-link">Plantas</a></li>
+          <li><a href="#evidencias" class="header__nav-link">Evidencias</a></li>
+          <li><a href="#contacto" class="header__nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a href="https://www.facebook.com/profile.php?id=61593481901986" target="_blank" rel="noopener noreferrer" class="btn btn--nav btn--facebook" aria-label="Visitar nuestra comunidad en Facebook">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+          <span>Facebook</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1tG-pmYwQnxcVoHuSMNnFGrw8J_K9yG-2?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn--nav btn--drive" aria-label="Ver evidencias en Google Drive">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span>Drive</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main" role="main">
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+      <div class="contenedor hero__inner">
+        <div class="hero__contenido">
+          <div class="hero__etiqueta" aria-label="Proyecto ecológico certificado">
+            <svg class="hero__etiqueta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <span>Proyecto Ecológico Escolar</span>
+          </div>
+          <h1 id="hero-titulo" class="hero__titulo">
+            Transformamos plástico en vida:<br>
+            <span class="hero__titulo-resaltado">Macetas ecológicas para tu botiquín natural</span>
+          </h1>
+          <p class="hero__subtitulo">
+            Reutilizamos botellas PET para crear macetas que cultivan plantas medicinales.
+            Una solución sostenible que cuida el planeta y tu salud, hecha con manos locales y corazón verde.
+          </p>
+          <div class="hero__acciones">
+            <a href="#plantas" class="btn btn--primario">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+              Ver Catálogo de Plantas
+            </a>
+            <a href="https://drive.google.com/drive/folders/1tG-pmYwQnxcVoHuSMNnFGrw8J_K9yG-2?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn--secundario">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              </svg>
+              Ver Evidencias en Drive
+            </a>
+          </div>
+        </div>
+        <div class="hero__imagen" aria-hidden="true">
+          <div class="hero__decoracion hero__decoracion--1"></div>
+          <div class="hero__decoracion hero__decoracion--2"></div>
+          <div class="hero__decoracion hero__decoracion--3"></div>
+          <svg class="hero__ilustracion" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="verdeGradiente" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#2E7D32"/>
+                <stop offset="100%" style="stop-color:#4CAF50"/>
+              </linearGradient>
+              <linearGradient id="tierraGradiente" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#8D6E63"/>
+                <stop offset="100%" style="stop-color:#5D4037"/>
+              </linearGradient>
+              <linearGradient id="botellaGradiente" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#E3F2FD"/>
+                <stop offset="50%" style="stop-color:#BBDEFB"/>
+                <stop offset="100%" style="stop-color:#E3F2FD"/>
+              </linearGradient>
+            </defs>
+            <g transform="translate(50, 50)">
+              <g transform="translate(50, 200)">
+                <path d="M50 0 L70 0 L80 100 L40 100 Z" fill="url(#botellaGradiente)" stroke="#90CAF9" stroke-width="2"/>
+                <ellipse cx="60" cy="0" rx="20" ry="8" fill="none" stroke="#90CAF9" stroke-width="2"/>
+                <ellipse cx="60" cy="100" rx="20" ry="8" fill="url(#tierraGradiente)"/>
+                <path d="M40 100 Q45 80 50 60 Q55 80 60 100" stroke="#2E7D32" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M60 100 Q65 80 70 60 Q75 80 80 100" stroke="#2E7D32" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M50 100 Q55 80 60 50 Q65 80 70 100" stroke="#2E7D32" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="50" cy="55" r="8" fill="#A5D6A7"/>
+                <circle cx="70" cy="55" r="8" fill="#A5D6A7"/>
+                <circle cx="60" cy="40" r="8" fill="#81C784"/>
+                <ellipse cx="60" cy="30" rx="6" ry="4" fill="#66BB6A"/>
+              </g>
+              <g transform="translate(180, 220)">
+                <path d="M50 0 L70 0 L78 100 L42 100 Z" fill="url(#botellaGradiente)" stroke="#90CAF9" stroke-width="2"/>
+                <ellipse cx="60" cy="0" rx="20" ry="8" fill="none" stroke="#90CAF9" stroke-width="2"/>
+                <ellipse cx="60" cy="100" rx="18" ry="7" fill="url(#tierraGradiente)"/>
+                <path d="M45 100 Q48 80 55 55 Q58 40 60 25" stroke="#1B5E20" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <path d="M55 55 Q58 35 62 20 Q66 35 65 55" stroke="#2E7D32" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M60 25 Q62 10 68 5" stroke="#4CAF50" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M68 5 Q72 10 70 25" stroke="#4CAF50" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="55" cy="70" r="10" fill="#A5D6A7"/>
+                <circle cx="65" cy="75" r="8" fill="#81C784"/>
+                <ellipse cx="60" cy="60" rx="5" ry="3" fill="#66BB6A"/>
+              </g>
+              <g transform="translate(280, 180)">
+                <path d="M50 0 L70 0 L75 100 L45 100 Z" fill="url(#botellaGradiente)" stroke="#90CAF9" stroke-width="2"/>
+                <ellipse cx="60" cy="0" rx="20" ry="8" fill="none" stroke="#90CAF9" stroke-width="2"/>
+                <ellipse cx="60" cy="100" rx="15" ry="6" fill="url(#tierraGradiente)"/>
+                <g stroke="#2E7D32" stroke-width="2.5" fill="none" stroke-linecap="round">
+                  <path d="M55 100 Q58 85 60 70 Q62 85 65 100"/>
+                  <path d="M60 70 Q62 50 65 40 Q68 50 70 70"/>
+                  <path d="M65 40 Q67 25 72 15"/>
+                  <path d="M65 40 Q63 25 58 15"/>
+                </g>
+                <g fill="#81C784">
+                  <circle cx="60" cy="65" r="7"/>
+                  <circle cx="55" cy="80" r="5"/>
+                  <circle cx="65" cy="82" r="5"/>
+                </g>
+              </g>
+              <g transform="translate(120, 340)">
+                <path d="M50 0 L70 0 L72 100 L48 100 Z" fill="url(#botellaGradiente)" stroke="#90CAF9" stroke-width="2"/>
+                <ellipse cx="60" cy="0" rx="20" ry="8" fill="none" stroke="#90CAF9" stroke-width="2"/>
+                <ellipse cx="60" cy="100" rx="12" ry="5" fill="url(#tierraGradiente)"/>
+                <g stroke="#1B5E20" stroke-width="3" fill="none" stroke-linecap="round">
+                  <path d="M58 100 Q60 80 62 65 Q64 80 66 100"/>
+                  <path d="M62 65 Q64 45 68 30 Q70 45 72 65"/>
+                  <path d="M68 30 Q70 15 75 8"/>
+                  <path d="M68 30 Q66 15 61 8"/>
+                </g>
+                <g fill="#66BB6A">
+                  <circle cx="60" cy="55" r="6"/>
+                  <circle cx="68" cy="60" r="5"/>
+                  <circle cx="54" cy="62" r="5"/>
+                </g>
+              </g>
+            </g>
+            <g transform="translate(20, 120)">
+              <path d="M200 80 Q220 60 240 80 Q260 100 240 80 Q220 60 200 80" fill="#4CAF50" opacity="0.3"/>
+              <path d="M180 100 Q200 80 220 100 Q240 120 220 100 Q200 80 180 100" fill="#2E7D32" opacity="0.4"/>
+              <path d="M160 120 Q180 100 200 120 Q220 140 200 120 Q180 100 160 120" fill="#4CAF50" opacity="0.3"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion nosotros" id="nosotros" aria-labelledby="nosotros-titulo">
+      <div class="contenedor">
+        <header class="seccion__cabecera">
+          <span class="seccion__etiqueta">¿Quiénes Somos?</span>
+          <h2 id="nosotros-titulo" class="seccion__titulo">
+            Un proyecto comunitario que <span class="seccion__titulo-resaltado">transforma residuos en vida</span>
+          </h2>
+          <p class="seccion__descripcion">
+            Nacimos de la necesidad de dar una segunda vida al plástico y llevar la medicina natural a los hogares.
+          </p>
+        </header>
+
+        <div class="nosotros__grid">
+          <div class="nosotros__contenido">
+            <p class="nosotros__texto">
+              <strong>Sembrando Futuro</strong> es una iniciativa ecológica y educativa que combina reciclaje creativo,
+              agricultura urbana y salud natural. Nuestro equipo está conformado por voluntarios, educadores ambientales
+              y amantes de las plantas que creen en el poder de lo simple: una botella, tierra y una semilla.
+            </p>
+            <p class="nosotros__texto">
+              Cada maceta que producimos nace de botellas PET recolectadas en escuelas, hogares y centros comunitarios.
+              Las transformamos mediante un proceso artesanal en macetas, ideales para cultivar
+              tu propio botiquín natural en balcones, ventanales o patios pequeños.
+            </p>
+
+            <div class="nosotros__valores">
+              <article class="valor">
+                <div class="valor__icono" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                    <path d="M12 6v6l4 2"/>
+                  </svg>
+                </div>
+                <div class="valor__info">
+                  <h3>Reciclaje Activo</h3>
+                  <p>Damos nueva vida a botellas PET evitando que terminen en océanos y vertederos.</p>
+                </div>
+              </article>
+
+              <article class="valor">
+                <div class="valor__icono" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                  </svg>
+                </div>
+                <div class="valor__info">
+                  <h3>Salud Natural</h3>
+                  <p>Promovemos el autocuidado con plantas medicinales accesibles y libres de químicos.</p>
+                </div>
+              </article>
+
+              <article class="valor">
+                <div class="valor__icono" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                    <path d="M12 14l6.16-3.422a12.083 12.083 0 0 1 .665 6.479A11.952 11.952 0 0 0 12 20.055a11.952 11.952 0 0 0 0-9.5 12.082 12.082 0 0 1 .665-6.478L12 14z"/>
+                    <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                  </svg>
+                </div>
+                <div class="valor__info">
+                  <h3>Educación Ambiental</h3>
+                  <p>Enseñamos a nuevas generaciones el valor del reciclaje y el cultivo sostenible.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <figure class="nosotros__imagen" aria-hidden="true">
+            <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="bgGradiente" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#F1F8E9"/>
+                  <stop offset="100%" style="stop-color:#E8F5E9"/>
+                </linearGradient>
+              </defs>
+              <rect width="500" height="400" fill="url(#bgGradiente)"/>
+              <g transform="translate(50, 40)">
+                <path d="M120 280 L100 280 L110 180 L150 180 L160 280 L140 280 L140 220 L120 220 Z" fill="#E3F2FD" stroke="#90CAF9" stroke-width="2"/>
+                <ellipse cx="130" cy="180" rx="30" ry="10" fill="none" stroke="#90CAF9" stroke-width="2"/>
+                <ellipse cx="130" cy="280" rx="30" ry="10" fill="#8D6E63"/>
+                <g stroke="#2E7D32" stroke-width="3" fill="none" stroke-linecap="round">
+                  <path d="M110 280 Q115 250 120 220 Q125 250 130 280"/>
+                  <path d="M130 220 Q135 190 140 160 Q145 190 150 220"/>
+                  <path d="M130 220 Q130 180 130 140"/>
+                </g>
+                <circle cx="120" cy="200" r="12" fill="#A5D6A7"/>
+                <circle cx="140" cy="205" r="10" fill="#81C784"/>
+                <circle cx="130" cy="180" r="11" fill="#66BB6A"/>
+                <ellipse cx="130" cy="165" rx="8" ry="5" fill="#4CAF50"/>
+              </g>
+              <g transform="translate(280, 60)">
+                <path d="M60 180 L40 180 L48 100 L72 100 L80 180 L60 180 Z" fill="#E3F2FD" stroke="#90CAF9" stroke-width="2"/>
+                <ellipse cx="60" cy="100" rx="20" ry="7" fill="none" stroke="#90CAF9" stroke-width="2"/>
+                <ellipse cx="60" cy="180" rx="20" ry="7" fill="#8D6E63"/>
+                <g stroke="#1B5E20" stroke-width="3.5" fill="none" stroke-linecap="round">
+                  <path d="M45 180 Q48 150 55 120 Q58 100 60 80"/>
+                  <path d="M55 120 Q58 95 65 75 Q72 100 70 120"/>
+                  <path d="M60 80 Q62 60 68 45"/>
+                  <path d="M60 80 Q58 60 52 45"/>
+                </g>
+                <g fill="#81C784">
+                  <circle cx="60" cy="140" r="12"/>
+                  <circle cx="55" cy="155" r="8"/>
+                  <circle cx="65" cy="158" r="8"/>
+                </g>
+              </g>
+              <g transform="translate(150, 260)">
+                <circle cx="20" cy="20" r="20" fill="#4CAF50" opacity="0.15"/>
+                <circle cx="180" cy="15" r="15" fill="#2E7D32" opacity="0.1"/>
+                <circle cx="40" cy="180" r="25" fill="#4CAF50" opacity="0.12"/>
+                <path d="M0 200 Q50 150 100 200 Q150 250 200 200" stroke="#2E7D32" stroke-width="2" fill="none" opacity="0.3"/>
+              </g>
+            </svg>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion proposito" id="proposito" aria-labelledby="proposito-titulo">
+      <div class="contenedor">
+        <header class="seccion__cabecera">
+          <span class="seccion__etiqueta">Propósito e Impacto</span>
+          <h2 id="proposito-titulo" class="seccion__titulo">
+            Del <span class="seccion__titulo-resaltado">problema</span> a la solución verde
+          </h2>
+          <p class="seccion__descripcion">
+            Cada botella que reciclamos es una menos en la naturaleza. Cada planta que cultivamos es salud para un hogar.
+          </p>
+        </header>
+
+        <div class="proposito__comparativa">
+          <article class="comparativa__tarjeta comparativa__tarjeta--problema">
+            <div class="comparativa__icono" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+            </div>
+            <h3 class="comparativa__titulo">El Problema</h3>
+            <ul class="comparativa__lista" role="list">
+              <li class="comparativa__item">
+                <span class="comparativa__item-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                </span>
+                <span>Más de <strong>1 millón de botellas PET</strong> se compran por minuto en el mundo.</span>
+              </li>
+              <li class="comparativa__item">
+                <span class="comparativa__item-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                </span>
+                <span>Solo el <strong>9%</strong> del plástico producido se recicla efectivamente.</span>
+              </li>
+              <li class="comparativa__item">
+                <span class="comparativa__item-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                </span>
+                <span>Una botella tarda <strong>450+ años</strong> en degradarse liberando microplásticos.</span>
+              </li>
+              <li class="comparativa__item">
+                <span class="comparativa__item-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                </span>
+                <span>Dependencia de fármacos sintéticos para dolencias leves tratables con plantas.</span>
+              </li>
+              <li class="comparativa__item">
+                <span class="comparativa__item-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                </span>
+                <span>Falta de espacios verdes y educación ambiental en entornos urbanos.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="comparativa__tarjeta comparativa__tarjeta--solucion">
+            <div class="comparativa__icono" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <h3 class="comparativa__titulo">Nuestra Solución</h3>
+            <ul class="comparativa__lista" role="list">
+              <li class="comparativa__item">
+                <span class="comparativa__item-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </span>
+                <span>Reutilizamos botellas PET como <strong>macetas</strong> duraderas y funcionales.</span>
+              </li>
+              <li class="comparativa__item">
+                <span class="comparativa__item-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </span>
+                <span>Cultivamos <strong>4 plantas medicinales</strong> clave: Menta, Sábila, Romero, Hierbabuena.</span>
+              </li>
+              <li class="comparativa__item">
+                <span class="comparativa__item-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </span>
+                <span>Sustrato 100% orgánico con compost casero, sin químicos ni pesticidas.</span>
+              </li>
+              <li class="comparativa__item">
+                <span class="comparativa__item-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </span>
+                <span>Talleres educativos en escuelas y comunidades sobre reciclaje y fitoterapia.</span>
+              </li>
+              <li class="comparativa__item">
+                <span class="comparativa__item-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </span>
+                <span>Empoderamos a familias para tener su <strong>botiquín natural en casa</strong>.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion proceso" id="proceso" aria-labelledby="proceso-titulo">
+      <div class="contenedor">
+        <header class="seccion__cabecera">
+          <span class="seccion__etiqueta">Nuestro Proceso</span>
+          <h2 id="proceso-titulo" class="seccion__titulo">
+            De la botella a la maceta en <span class="seccion__titulo-resaltado">4 pasos artesanales</span>
+          </h2>
+          <p class="seccion__descripcion">
+            Un proceso cuidado, manual y sostenible que garantiza la calidad de cada maceta ecológica.
+          </p>
+        </header>
+
+        <div class="proceso__lista" role="list">
+          <article class="paso" aria-label="Paso 1: Recolección y Limpieza">
+            <span class="paso__numero" aria-hidden="true">1</span>
+            <div class="paso__contenido">
+              <h3 class="paso__titulo">Recolección y Limpieza</h3>
+              <p class="paso__descripcion">
+                Seleccionamos botellas PET de 2L y 3L en puntos de acopio comunitarios. Las lavamos a fondo con agua y jabón
+                biodegradable, eliminando etiquetas y residuos. Luego las desinfectamos con solución de vinagre y agua para
+                garantizar un contenedor higiénico para el cultivo.
+              </p>
+            </div>
+          </article>
+
+          <article class="paso" aria-label="Paso 2: Corte y Adecuación">
+            <span class="paso__numero" aria-hidden="true">2</span>
+            <div class="paso__contenido">
+              <h3 class="paso__titulo">Corte y Adecuación</h3>
+              <p class="paso__descripcion">
+                Cortamos la botella a la altura ideal o a un lado para usarla de manera horizontal. Perforamos la base con 4-6 orificios de drenaje.
+              </p>
+            </div>
+          </article>
+
+          <article class="paso" aria-label="Paso 3: Sustrato Orgánico">
+            <span class="paso__numero" aria-hidden="true">3</span>
+            <div class="paso__contenido">
+              <h3 class="paso__titulo">Sustrato Orgánico</h3>
+              <p class="paso__descripcion">
+                Preparamos una mezcla nutritiva: 40% tierra fertil, 30% abono de cuy y 10% humus de lombriz.
+                Esta combinación asegura retención de agua, aireación y nutrientes de liberación lenta. Esterilizamos el sustrato
+                al sol 48 horas para eliminar patógenos sin químicos.
+              </p>
+            </div>
+          </article>
+
+          <article class="paso" aria-label="Paso 4: Siembra y Cuidado">
+            <span class="paso__numero" aria-hidden="true">4</span>
+            <div class="paso__contenido">
+              <h3 class="paso__titulo">Siembra y Cuidado Inicial</h3>
+              <p class="paso__descripcion">
+                Trasplantamos plántulas de 4-6 semanas (no semillas directas) para mayor éxito. Regamos con abundante agua. Entregamos cada maceta con guía de cuidados: luz, frecuencia de llenado del reservorio,
+                poda y cosecha. Acompañamos al usuario sus primeras 2 semanas.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion plantas" id="plantas" aria-labelledby="plantas-titulo">
+      <div class="contenedor">
+        <header class="seccion__cabecera">
+          <span class="seccion__etiqueta">Catálogo</span>
+          <h2 id="plantas-titulo" class="seccion__titulo">
+            Tu <span class="seccion__titulo-resaltado">botiquín natural</span> en 4 plantas
+          </h2>
+          <p class="seccion__descripcion">
+            Seleccionadas por su facilidad de cultivo, versatilidad medicinal y adaptación a macetas.
+          </p>
+        </header>
+
+        <div class="plantas__grid" role="list">
+          <article class="planta" role="listitem">
+            <div class="planta__imagen" aria-hidden="true">
+              <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="mentaGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#2E7D32"/>
+                    <stop offset="100%" style="stop-color:#4CAF50"/>
+                  </linearGradient>
+                </defs>
+                <g transform="translate(100, 160)">
+                  <g stroke="url(#mentaGrad)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M0 0 Q-10 -30 0 -60 Q10 -30 0 0"/>
+                    <path d="M-20 -20 Q-30 -50 -15 -80 Q0 -50 -20 -20"/>
+                    <path d="M20 -20 Q30 -50 15 -80 Q0 -50 20 -20"/>
+                    <path d="M-10 -40 Q-25 -65 -10 -90 Q5 -65 -10 -40"/>
+                    <path d="M10 -40 Q25 -65 10 -90 Q-5 -65 10 -40"/>
+                    <path d="M-5 -60 Q-15 -80 0 -100 Q15 -80 5 -60"/>
+                  </g>
+                  <g fill="#66BB6A">
+                    <ellipse cx="-12" cy="-25" rx="14" ry="8" transform="rotate(-15)"/>
+                    <ellipse cx="12" cy="-25" rx="14" ry="8" transform="rotate(15)"/>
+                    <ellipse cx="-20" cy="-50" rx="12" ry="7" transform="rotate(-25)"/>
+                    <ellipse cx="20" cy="-50" rx="12" ry="7" transform="rotate(25)"/>
+                    <ellipse cx="-8" cy="-70" rx="10" ry="6" transform="rotate(-10)"/>
+                    <ellipse cx="8" cy="-70" rx="10" ry="6" transform="rotate(10)"/>
+                    <ellipse cx="0" cy="-90" rx="9" ry="5"/>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="planta__contenido">
+              <h3 class="planta__nombre">Menta</h3>
+              <div class="planta__beneficios" aria-label="Beneficios: Digestiva, Descongestionante, Antiespasmódica">
+                <span class="planta__beneficio">Digestiva</span>
+                <span class="planta__beneficio">Descongestionante</span>
+                <span class="planta__beneficio">Antiespasmódica</span>
+              </div>
+              <p class="planta__descripcion">
+                Alivia indigestión, náuseas y cólicos. Su mentol descongestiona vías respiratorias y refresca el aliento.
+              </p>
+              <div class="planta__usos">
+                <svg class="planta__usos-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                <span>Infusión, inhalación, compresas, cocina</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="planta" role="listitem">
+            <div class="planta__imagen" aria-hidden="true">
+              <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="sabilaGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#1B5E20"/>
+                    <stop offset="100%" style="stop-color:#2E7D32"/>
+                  </linearGradient>
+                </defs>
+                <g transform="translate(100, 170)">
+                  <g stroke="url(#sabilaGrad)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M0 0 Q-25 -20 -30 -50 Q-20 -30 -10 -10"/>
+                    <path d="M0 0 Q25 -20 30 -50 Q20 -30 10 -10"/>
+                    <path d="M0 0 Q-15 -30 -18 -60 Q-8 -35 -5 -15"/>
+                    <path d="M0 0 Q15 -30 18 -60 Q8 -35 5 -15"/>
+                    <path d="M0 0 Q-8 -40 -10 -70 Q-2 -40 0 -10"/>
+                    <path d="M0 0 Q8 -40 10 -70 Q2 -40 0 -10"/>
+                  </g>
+                  <g fill="#81C784">
+                    <path d="M0 0 Q-25 -20 -30 -50 Q-20 -30 -10 -10 Z" opacity="0.8"/>
+                    <path d="M0 0 Q25 -20 30 -50 Q20 -30 10 -10 Z" opacity="0.8"/>
+                    <path d="M0 0 Q-15 -30 -18 -60 Q-8 -35 -5 -15 Z" opacity="0.9"/>
+                    <path d="M0 0 Q15 -30 18 -60 Q8 -35 5 -15 Z" opacity="0.9"/>
+                  </g>
+                  <path d="M-2 -5 Q-1 -20 0 -35 Q1 -20 2 -5 Z" fill="#A5D6A7" opacity="0.9"/>
+                </g>
+              </svg>
+            </div>
+            <div class="planta__contenido">
+              <h3 class="planta__nombre">Sábila (Aloe Vera)</h3>
+              <div class="planta__beneficios" aria-label="Beneficios: Cicatrizante, Antiinflamatoria, Hidratante">
+                <span class="planta__beneficio">Cicatrizante</span>
+                <span class="planta__beneficio">Antiinflamatoria</span>
+                <span class="planta__beneficio">Hidratante</span>
+              </div>
+              <p class="planta__descripcion">
+                El gel interno cura quemaduras, cortes, irritaciones y acné. Antiinflamatorio natural para piel y mucosas.
+              </p>
+              <div class="planta__usos">
+                <svg class="planta__usos-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                <span>Gel tópico directo, mascarillas, jugo interno</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="planta" role="listitem">
+            <div class="planta__imagen" aria-hidden="true">
+              <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="romeroGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#2E7D32"/>
+                    <stop offset="100%" style="stop-color:#1B5E20"/>
+                  </linearGradient>
+                </defs>
+                <g transform="translate(100, 165)">
+                  <g stroke="url(#romeroGrad)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M0 0 Q-5 -25 0 -55 Q5 -25 0 0"/>
+                    <g stroke-width="1.5">
+                      <path d="M-8 -10 Q-12 -15 -8 -20 Q-4 -15 -8 -10"/>
+                      <path d="M8 -10 Q12 -15 8 -20 Q4 -15 8 -10"/>
+                      <path d="M-6 -25 Q-10 -30 -6 -35 Q-2 -30 -6 -25"/>
+                      <path d="M6 -25 Q10 -30 6 -35 Q2 -30 6 -25"/>
+                      <path d="M-4 -40 Q-8 -45 -4 -50 Q0 -45 -4 -40"/>
+                      <path d="M4 -40 Q8 -45 4 -50 Q0 -45 4 -40"/>
+                      <path d="M-2 -50 Q-5 -53 -2 -56 Q1 -53 -2 -50"/>
+                      <path d="M2 -50 Q5 -53 2 -56 Q-1 -53 2 -50"/>
+                    </g>
+                  </g>
+                  <circle cx="0" cy="-55" r="3" fill="#4CAF50"/>
+                  <circle cx="-4" cy="-50" r="2" fill="#4CAF50"/>
+                  <circle cx="4" cy="-50" r="2" fill="#4CAF50"/>
+                </g>
+              </svg>
+            </div>
+            <div class="planta__contenido">
+              <h3 class="planta__nombre">Romero</h3>
+              <div class="planta__beneficios" aria-label="Beneficios: Antioxidante, Tónico digestivo, Estimulante capilar">
+                <span class="planta__beneficio">Antioxidante</span>
+                <span class="planta__beneficio">Digestivo</span>
+                <span class="planta__beneficio">Capilar</span>
+              </div>
+              <p class="planta__descripcion">
+                Mejora la memoria y concentración. Estimula la digestión y el crecimiento capilar. Potente antioxidante natural.
+              </p>
+              <div class="planta__usos">
+                <svg class="planta__usos-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                <span>Infusión, aceite esencial, enjuague capilar, cocina</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="planta" role="listitem">
+            <div class="planta__imagen" aria-hidden="true">
+              <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="hierbabuenaGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#388E3C"/>
+                    <stop offset="100%" style="stop-color:#4CAF50"/>
+                  </linearGradient>
+                </defs>
+                <g transform="translate(100, 160)">
+                  <g stroke="url(#hierbabuenaGrad)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M0 0 Q-8 -28 0 -55 Q8 -28 0 0"/>
+                    <path d="M-15 -15 Q-22 -40 -10 -65 Q-2 -35 -15 -15"/>
+                    <path d="M15 -15 Q22 -40 10 -65 Q2 -35 15 -15"/>
+                    <path d="M-8 -30 Q-18 -50 -5 -70 Q4 -45 -8 -30"/>
+                    <path d="M8 -30 Q18 -50 5 -70 Q-4 -45 8 -30"/>
+                    <path d="M-4 -45 Q-10 -60 0 -80 Q10 -60 4 -45"/>
+                  </g>
+                  <g fill="#81C784">
+                    <ellipse cx="-10" cy="-20" rx="13" ry="7" transform="rotate(-12)"/>
+                    <ellipse cx="10" cy="-20" rx="13" ry="7" transform="rotate(12)"/>
+                    <ellipse cx="-16" cy="-42" rx="11" ry="6" transform="rotate(-20)"/>
+                    <ellipse cx="16" cy="-42" rx="11" ry="6" transform="rotate(20)"/>
+                    <ellipse cx="-6" cy="-60" rx="9" ry="5" transform="rotate(-8)"/>
+                    <ellipse cx="6" cy="-60" rx="9" ry="5" transform="rotate(8)"/>
+                    <ellipse cx="0" cy="-75" rx="8" ry="4"/>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="planta__contenido">
+              <h3 class="planta__nombre">Hierbabuena</h3>
+              <div class="planta__beneficios" aria-label="Beneficios: Calmante, Alivia cólicos, Antiespasmódica">
+                <span class="planta__beneficio">Calmante</span>
+                <span class="planta__beneficio">Antiespasmódica</span>
+                <span class="planta__beneficio">Carminativa</span>
+              </div>
+              <p class="planta__descripcion">
+                Suaviza dolores estomacales, elimina gases y cólicos. Relaja el sistema nervioso y mejora el sueño.
+              </p>
+              <div class="planta__usos">
+                <svg class="planta__usos-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                <span>Infusión nocturna, jarabe casero, aromaterapia</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion evidencias" id="evidencias" aria-labelledby="evidencias-titulo">
+      <div class="contenedor">
+        <div class="evidencias__contenido">
+          <div class="evidencias__texto">
+            <header class="seccion__cabecera" style="text-align: left; margin-bottom: 2rem;">
+              <span class="seccion__etiqueta">Galería de Evidencias</span>
+              <h2 id="evidencias-titulo" class="seccion__titulo">
+                Documentamos <span class="seccion__titulo-resaltado">cada paso del proceso</span>
+              </h2>
+              <p class="seccion__descripcion">
+                Transparencia total: fotos, videos, mediciones y testimonios de nuestro impacto real en la comunidad.
+              </p>
+            </header>
+
+            <p class="evidencias__descripcion">
+              En nuestro Google Drive encontrarás carpetas organizadas por etapas: recolección en escuelas, talleres de corte,
+              preparación de sustrato, jornadas de siembra, seguimiento de crecimiento y testimonios de familias beneficiadas.
+              Todo documentado con fechas, geolocalización y métricas de impacto ambiental y social.
+            </p>
+
+            <div class="evidencias__stats" role="list" aria-label="Estadísticas de impacto">
+              <div class="evidencia__stat" role="listitem">
+                <span class="evidencia__stat-numero">2,400+</span>
+                <span class="evidencia__stat-label">Botellas recicladas</span>
+              </div>
+              <div class="evidencia__stat" role="listitem">
+                <span class="evidencia__stat-numero">600+</span>
+                <span class="evidencia__stat-label">Macetas entregadas</span>
+              </div>
+              <div class="evidencia__stat" role="listitem">
+                <span class="evidencia__stat-numero">12</span>
+                <span class="evidencia__stat-label">Escuelas aliadas</span>
+              </div>
+              <div class="evidencia__stat" role="listitem">
+                <span class="evidencia__stat-numero">85%</span>
+                <span class="evidencia__stat-label">Supervivencia plantas</span>
+              </div>
+            </div>
+
+            <div class="evidencias__accion">
+              <a href="https://drive.google.com/drive/folders/1tG-pmYwQnxcVoHuSMNnFGrw8J_K9yG-2?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn--primario" style="padding: 1rem 2.5rem; font-size: 1.0625rem;">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                </svg>
+                Explorar evidencias en Google Drive
+              </a>
+            </div>
+          </div>
+
+          <figure class="evidencias__imagen" aria-hidden="true">
+            <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="driveBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#F1F8E9"/>
+                  <stop offset="100%" style="stop-color:#E8F5E9"/>
+                </linearGradient>
+                <linearGradient id="carpetaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#FFD54F"/>
+                  <stop offset="100%" style="stop-color:#FFA000"/>
+                </linearGradient>
+              </defs>
+              <rect width="500" height="400" fill="url(#driveBg)"/>
+              <g transform="translate(60, 50)">
+                <g fill="url(#carpetaGrad)" stroke="#F57F17" stroke-width="1.5">
+                  <path d="M20 180 L20 60 Q20 40 40 40 L180 40 Q200 40 200 60 L200 180 Q200 200 180 200 L20 200 Q0 200 0 180 L0 60 Q0 40 20 40 Z"/>
+                  <path d="M20 60 L40 60 L40 40 Q60 25 100 40 L180 40"/>
+                </g>
+                <g transform="translate(40, 80)">
+                  <rect x="0" y="0" width="140" height="80" rx="8" fill="#FFFFFF" opacity="0.9" stroke="#E8F5E9" stroke-width="2"/>
+                  <text x="70" y="35" text-anchor="middle" font-family="Outfit" font-size="14" font-weight="600" fill="#2E7D32">📁 Recolección</text>
+                  <text x="70" y="55" text-anchor="middle" font-family="Outfit" font-size="11" fill="#475569">480 fotos • 12 escuelas</text>
+                </g>
+                <g transform="translate(220, 80)">
+                  <rect x="0" y="0" width="140" height="80" rx="8" fill="#FFFFFF" opacity="0.9" stroke="#E8F5E9" stroke-width="2"/>
+                  <text x="70" y="35" text-anchor="middle" font-family="Outfit" font-size="14" font-weight="600" fill="#2E7D32">📁 Proceso</text>
+                  <text x="70" y="55" text-anchor="middle" font-family="Outfit" font-size="11" fill="#475569">320 fotos • 4 etapas</text>
+                </g>
+                <g transform="translate(40, 180)">
+                  <rect x="0" y="0" width="140" height="80" rx="8" fill="#FFFFFF" opacity="0.9" stroke="#E8F5E9" stroke-width="2"/>
+                  <text x="70" y="35" text-anchor="middle" font-family="Outfit" font-size="14" font-weight="600" fill="#2E7D32">📁 Siembra</text>
+                  <text x="70" y="55" text-anchor="middle" font-family="Outfit" font-size="11" fill="#475569">210 fotos • 600 macetas</text>
+                </g>
+                <g transform="translate(220, 180)">
+                  <rect x="0" y="0" width="140" height="80" rx="8" fill="#FFFFFF" opacity="0.9" stroke="#E8F5E9" stroke-width="2"/>
+                  <text x="70" y="35" text-anchor="middle" font-family="Outfit" font-size="14" font-weight="600" fill="#2E7D32">📁 Seguimiento</text>
+                  <text x="70" y="55" text-anchor="middle" font-family="Outfit" font-size="11" fill="#475569">450 fotos • 3 meses</text>
+                </g>
+                <g transform="translate(130, 280)">
+                  <rect x="0" y="0" width="140" height="80" rx="8" fill="#FFFFFF" opacity="0.9" stroke="#E8F5E9" stroke-width="2"/>
+                  <text x="70" y="35" text-anchor="middle" font-family="Outfit" font-size="14" font-weight="600" fill="#2E7D32">📁 Testimonios</text>
+                  <text x="70" y="55" text-anchor="middle" font-family="Outfit" font-size="11" fill="#475569">45 videos • 38 familias</text>
+                </g>
+              </g>
+              <g transform="translate(20, 20)" fill="#2E7D32" opacity="0.05">
+                <circle cx="40" cy="350" r="30"/>
+                <circle cx="460" cy="30" r="25"/>
+                <circle cx="480" cy="350" r="20"/>
+              </g>
+            </svg>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion contacto" id="contacto" aria-labelledby="contacto-titulo">
+      <div class="contenedor">
+        <header class="seccion__cabecera">
+          <span class="seccion__etiqueta">Contacto</span>
+          <h2 id="contacto-titulo" class="seccion__titulo">
+            ¿Quieres <span class="seccion__titulo-resaltado">tu maceta medicinal</span> o sumarte al proyecto?
+          </h2>
+          <p class="seccion__descripcion">
+            Escríbenos y te respondemos en menos de 24 horas. Cada mensaje siembra una semilla de cambio.
+          </p>
+        </header>
+
+        <div class="contacto__grid">
+          <div class="contacto__info">
+            <p class="contacto__descripcion">
+              Estamos ubicados en Otuzco Perú.
+              También ofrecemos talleres presenciales para escuelas, empresas y comunidades que quieran
+              aprender a hacer sus propias macetas ecológicas.
+            </p>
+
+            <div class="contacto__metodos">
+              <div class="contacto__metodo">
+                <div class="contacto__metodo-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div class="contacto__metodo-info">
+                  <h3>Ubicación</h3>
+                  <p>Cl. Bolivar 706<br>Colegio 80229 Cristo Jesus - Otuzco</p>
+                </div>
+              </div>
+
+              <div class="contacto__metodo">
+                <div class="contacto__metodo-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                </div>
+                <div class="contacto__metodo-info">
+                  <h3>Correo electrónico</h3>
+                  <p>sembrandofuturo80229@gmail.com<br>respuesta en < 24h</p>
+                </div>
+              </div>
+
+              <div class="contacto__metodo">
+                <div class="contacto__metodo-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                </div>
+                <div class="contacto__metodo-info">
+                  <h3>WhatsApp</h3>
+                  <p>+51 982 978 192<br>Lun-Vie 9:00-18:00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="contacto__redes" role="list" aria-label="Redes sociales">
+              <a href="https://www.facebook.com/profile.php?id=61593481901986" target="_blank" rel="noopener noreferrer" class="contacto__red contacto__red--facebook" aria-label="Facebook" role="listitem">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+              </a>
+              <a href="https://drive.google.com/drive/folders/1tG-pmYwQnxcVoHuSMNnFGrw8J_K9yG-2?usp=sharing" target="_blank" rel="noopener noreferrer" class="contacto__red contacto__red--drive" aria-label="Google Drive" role="listitem">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </a>
+              
+            </div>
+          </div>
+
+          <form class="contacto__formulario" action="https://formspree.io/f/your-form-id" method="POST" novalidate>
+            <div class="formulario__grupo">
+              <label for="nombre" class="formulario__etiqueta">
+                Nombre completo <span class="formulario__etiqueta-requerido" aria-hidden="true">*</span>
+              </label>
+              <input type="text" id="nombre" name="nombre" class="formulario__input" placeholder="María González" required aria-required="true" autocomplete="name">
+            </div>
+
+            <div class="formulario__grupo">
+              <label for="contacto" class="formulario__etiqueta">
+                Correo o WhatsApp <span class="formulario__etiqueta-requerido" aria-hidden="true">*</span>
+              </label>
+              <input type="text" id="contacto" name="contacto" class="formulario__input" placeholder="maria@email.com o +52 55 1234 5678" required aria-required="true" autocomplete="email">
+            </div>
+
+            <div class="formulario__grupo">
+              <label for="asunto" class="formulario__etiqueta">
+                Asunto <span class="formulario__etiqueta-requerido" aria-hidden="true">*</span>
+              </label>
+              <select id="asunto" name="asunto" class="formulario__select" required aria-required="true">
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="sugerencias">Sugerencias</option>
+                <option value="adquirir">Adquirir Maceta</option>
+                <option value="sumarme">Sumarme al Proyecto</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="formulario__grupo">
+              <label for="mensaje" class="formulario__etiqueta">
+                Mensaje <span class="formulario__etiqueta-requerido" aria-hidden="true">*</span>
+              </label>
+              <textarea id="mensaje" name="mensaje" class="formulario__textarea" placeholder="Cuéntanos qué necesitas, cuántas macetas quieres, o cómo te gustaría colaborar..." required aria-required="true"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primario formulario__submit">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+              </svg>
+              Enviar Mensaje
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="contenedor">
+      <div class="footer__grid">
+        <div class="footer__marca">
+          <div class="footer__logo">
+            <span class="footer__logo-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </span>
+            <span>Sembrando Futuro</span>
+          </div>
+          <p class="footer__descripcion">
+            Transformamos botellas PET en macetas para cultivar tu botiquín natural.
+            Proyecto comunitario de reciclaje, salud y educación ambiental.
+          </p>
+          <div class="footer__redes" role="list" aria-label="Redes sociales">
+            <a href="https://www.facebook.com/profile.php?id=61593481901986" target="_blank" rel="noopener noreferrer" class="footer__red" aria-label="Facebook" role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1tG-pmYwQnxcVoHuSMNnFGrw8J_K9yG-2?usp=sharing" target="_blank" rel="noopener noreferrer" class="footer__red" aria-label="Google Drive" role="listitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </a>
+            <a href="mailto:sembrandofuturo80229@gmail.com" class="footer__red" aria-label="Correo electrónico" role="listitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <nav class="footer__navegacion" aria-label="Navegación del pie de página">
+          <h3 class="footer__titulo">Navegación</h3>
+          <ul class="footer__enlaces">
+            <li><a href="#inicio" class="footer__enlace">Inicio</a></li>
+            <li><a href="#nosotros" class="footer__enlace">Nosotros</a></li>
+            <li><a href="#proposito" class="footer__enlace">Propósito</a></li>
+            <li><a href="#proceso" class="footer__enlace">Proceso</a></li>
+            <li><a href="#plantas" class="footer__enlace">Plantas</a></li>
+            <li><a href="#evidencias" class="footer__enlace">Evidencias</a></li>
+            <li><a href="#contacto" class="footer__enlace">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer__enlaces-rapidos">
+          <h3 class="footer__titulo">Enlaces Rápidos</h3>
+          <ul class="footer__enlaces">
+            <li><a href="https://www.facebook.com/profile.php?id=61593481901986" target="_blank" rel="noopener noreferrer" class="footer__enlace">Comunidad Facebook</a></li>
+            <li><a href="https://drive.google.com/drive/folders/1tG-pmYwQnxcVoHuSMNnFGrw8J_K9yG-2?usp=sharing" target="_blank" rel="noopener noreferrer" class="footer__enlace">Evidencias en Drive</a></li>
+            <li><a href="#plantas" class="footer__enlace">Catálogo de Plantas</a></li>
+            <li><a href="#contacto" class="footer__enlace">Solicitar Maceta</a></li>
+            <li><a href="#contacto" class="footer__enlace">Voluntariado</a></li>
+          </ul>
+        </div>
+
+        <address class="footer__contacto" aria-label="Información de contacto">
+          <h3 class="footer__titulo">Contacto</h3>
+          <div class="footer__contacto-item">
+            <svg class="footer__contacto-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>Cl. Bolivar 706<br>Colegio 80229 Cristo Jesus - Otuzco</span>
+          </div>
+          <div class="footer__contacto-item">
+            <svg class="footer__contacto-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <span>sembrandofuturo80229@gmail.com</span>
+          </div>
+          <div class="footer__contacto-item">
+            <svg class="footer__contacto-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span>+521 982 978 192</span>
+          </div>
+        </address>
+      </div>
+
+      <div class="footer__divisor" aria-hidden="true"></div>
+
+      <div class="footer__copyright">
+        <p>&copy; 2025 Sembrando Futuro. Todos los derechos reservados.</p>
+        <p class="footer__mensaje">Cultivando sostenibilidad un vegetal a la vez 🌱</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      'use strict';
+
+      const hamburger = document.querySelector('.header__hamburger');
+      const nav = document.querySelector('.header__nav');
+      const navLinks = document.querySelectorAll('.header__nav-link');
+
+      function toggleMenu() {
+        const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !isOpen);
+        nav.classList.toggle('header__nav--abierto');
+        document.body.style.overflow = isOpen ? '' : 'hidden';
+      }
+
+      function closeMenu() {
+        hamburger.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('header__nav--abierto');
+        document.body.style.overflow = '';
+      }
+
+      hamburger.addEventListener('click', toggleMenu);
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav.classList.contains('header__nav--abierto')) {
+          closeMenu();
+          hamburger.focus();
+        }
+      });
+
+      const header = document.querySelector('.header');
+      let lastScroll = 0;
+      window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll > 50) {
+          header.style.boxShadow = 'var(--sombra-media)';
+        } else {
+          header.style.boxShadow = 'none';
+        }
+        lastScroll = currentScroll;
+      }, { passive: true });
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            const headerHeight = header.offsetHeight;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+            target.focus({ preventScroll: true });
+          }
+        });
+      });
+
+      const form = document.querySelector('.contacto__formulario');
+      const modal = document.getElementById('modal-exito');
+      const modalCerrar = document.getElementById('modal-cerrar');
+
+      function abrirModal() {
+        modal.hidden = false;
+        requestAnimationFrame(() => modal.classList.add('modal--visible'));
+        document.body.style.overflow = 'hidden';
+      }
+
+      function cerrarModal() {
+        modal.classList.remove('modal--visible');
+        modal.addEventListener('transitionend', function handler() {
+          modal.hidden = true;
+          modal.removeEventListener('transitionend', handler);
+        }, { once: true });
+        document.body.style.overflow = '';
+      }
+
+      modalCerrar.addEventListener('click', cerrarModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) cerrarModal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.hidden) cerrarModal();
+      });
+
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const submitBtn = form.querySelector('.formulario__submit');
+          const originalText = submitBtn.innerHTML;
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Enviando...';
+
+          try {
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+              method: 'POST',
+              body: formData,
+              headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+              form.reset();
+              submitBtn.innerHTML = originalText;
+              submitBtn.disabled = false;
+              abrirModal();
+            } else {
+              throw new Error('Error en el envío');
+            }
+          } catch (error) {
+            submitBtn.innerHTML = '<svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Error, intente de nuevo';
+            submitBtn.style.background = '#EF4444';
+            setTimeout(() => {
+              submitBtn.innerHTML = originalText;
+              submitBtn.style.background = '';
+              submitBtn.disabled = false;
+            }, 3000);
+          }
+        });
+      }
+              submitBtn.disabled = false;
+            }, 3000);
+          }
+        });
+      }
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.seccion > .contenedor > *:not(.seccion__cabecera)').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        observer.observe(el);
+      });
+
+      document.querySelectorAll('.planta').forEach((card, index) => {
+        card.style.transitionDelay = `${index * 100}ms`;
+        observer.observe(card);
+      });
+
+      document.querySelectorAll('.valor').forEach((card, index) => {
+        card.style.transitionDelay = `${index * 100}ms`;
+        observer.observe(card);
+      });
+
+      document.querySelectorAll('.paso').forEach((card, index) => {
+        card.style.transitionDelay = `${index * 150}ms`;
+        observer.observe(card);
+      });
+    })();
+  </script>
+</body>
+</html>
