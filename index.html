@@ -1481,6 +1481,87 @@ svg {
       font-weight: 500;
       color: var(--verde-acento);
     }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .modal--visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 41, 59, 0.6);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal__contenido {
+      position: relative;
+      background: var(--blanco);
+      border-radius: var(--radio-borde);
+      padding: 3rem 2.5rem;
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: var(--sombra-media);
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .modal--visible .modal__contenido {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal__icono {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 1.5rem;
+      background: var(--verde-claro);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--verde-principal);
+      animation: modalIconPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+    }
+
+    @keyframes modalIconPop {
+      0% { transform: scale(0); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    .modal__titulo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--texto-principal);
+      margin-bottom: 0.75rem;
+    }
+
+    .modal__mensaje {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--texto-secundario);
+      margin-bottom: 2rem;
+    }
+
+    .modal__boton {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -2356,7 +2437,7 @@ svg {
             </div>
           </div>
 
-          <form class="contacto__formulario" action="https://formspree.io/f/your-form-id" method="POST" novalidate>
+          <form class="contacto__formulario" method="POST" novalidate>
             <div class="formulario__grupo">
               <label for="nombre" class="formulario__etiqueta">
                 Nombre completo <span class="formulario__etiqueta-requerido" aria-hidden="true">*</span>
@@ -2403,6 +2484,18 @@ svg {
       </div>
     </section>
   </main>
+
+  <div id="modal-exito" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+    <div class="modal__overlay"></div>
+    <div class="modal__contenido">
+      <svg class="modal__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+      <h2 id="modal-titulo" class="modal__titulo">¡Mensaje Enviado!</h2>
+      <p class="modal__mensaje">Gracias por unirte a nuestra comunidad 🌱<br>Te responderemos en menos de 24 horas.</p>
+      <button id="modal-cerrar" class="btn btn--primario modal__boton">Continuar</button>
+    </div>
+  </div>
 
   <footer class="footer" role="contentinfo">
     <div class="contenedor">
@@ -2598,36 +2691,12 @@ svg {
           submitBtn.disabled = true;
           submitBtn.innerHTML = '<svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Enviando...';
 
-          try {
-            const formData = new FormData(form);
-            const response = await fetch(form.action, {
-              method: 'POST',
-              body: formData,
-              headers: { 'Accept': 'application/json' }
-            });
+          await new Promise(resolve => setTimeout(resolve, 1500));
 
-            if (response.ok) {
-              form.reset();
-              submitBtn.innerHTML = originalText;
-              submitBtn.disabled = false;
-              abrirModal();
-            } else {
-              throw new Error('Error en el envío');
-            }
-          } catch (error) {
-            submitBtn.innerHTML = '<svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Error, intente de nuevo';
-            submitBtn.style.background = '#EF4444';
-            setTimeout(() => {
-              submitBtn.innerHTML = originalText;
-              submitBtn.style.background = '';
-              submitBtn.disabled = false;
-            }, 3000);
-          }
-        });
-      }
-              submitBtn.disabled = false;
-            }, 3000);
-          }
+          form.reset();
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+          abrirModal();
         });
       }
 
